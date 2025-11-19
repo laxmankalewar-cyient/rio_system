@@ -1,0 +1,128 @@
+@keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+.blinking-text {
+color: crimson;
+animation: blink 1s infinite;
+        }
+
+.nav-tabs .nav-link{
+border: 2px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: whitesmoke;
+    margin: 2px;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+color: #121211;
+    background-color: #c8b5e7;
+}
+
+
+
+.my-url{
+    color: #4915eb !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+    font-weight: bold !important;
+
+}
+ .o_arrow_button.btn-primary.disabled {
+        color: red !important;
+        background: yellow !important;
+    }
+
+.o_arrow_button.btn-primary::after {
+   border-left-color: yellow !important;
+}
+
+.o_list_view .o_list_table .text-primary{
+color: black !important; background: #CCCECF !important;
+}
+
+.o_list_view .o_list_table .text-info{
+color: black !important; background: #B3D1F9 !important;
+}
+
+.o_list_view .o_list_table .text-warning{
+ color: black !important; background: #FBF3E1 !important;
+}
+
+.o_list_view .o_list_table .text-danger{
+ color: black !important; background: #FBD4CB !important;
+}
+
+.o_list_view .o_list_table .text-success{
+  color: black !important; background: #E2FBCB !important;
+}
+.o_list_view .o_list_table .text-bf{
+  color: #fb6222 !important;font-weight: normal;
+}
+
+.material_data{ color:green ! important;
+ }
+.sap_current{ color:blue ! important;
+ }
+.bnb_project{ color:magenta ! important;
+ }
+ .supply_chain{ color:#642c8c ! important;
+ }
+ .current_status{ color:magenta ! important;
+ }
+
+.btn-custom-info {
+    background: #56bf9c !important;
+    color: black !important;
+    border-color: #56bf9c !important;
+}
+.btn-custom-warning {
+    background: #FBF3E1 !important;
+    color: black !important;
+    border-color: #FBF3E1 !important;
+}
+.btn-custom-other {
+    background: #ccf0a8 !important;
+    color: black !important;
+    border-color: #ccf0a8 !important;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.btn-custom-danger {
+    background: #FBD4CB !important;
+    color: black !important;
+    border-color: #FBD4CB !important;
+}
+.btn-custom-red{
+color: red !important
+}
+.btn-custom-yellow{
+color: #bae3ea !important
+}
+
+.note_column{
+width: 400px !important;
+max-width: 400px !important;
+}
+
+.btn-custom-disc-compl {
+    background: #17a2b8 !important;
+    color: black !important;
+    border-color: #17a2b8 !important;
+}
+
+.btn-custom-completed {
+    background: #dc74bb !important;
+    color: black !important;
+    border-color: #dc74bb !important;
+}
+ 

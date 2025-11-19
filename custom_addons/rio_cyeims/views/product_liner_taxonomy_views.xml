@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_liner_taxonomy_view_search" model="ir.ui.view">
+            <field name="name">product.liner_taxonomy.search</field>
+            <field name="model">product.liner_taxonomy</field>
+            <field name="arch" type="xml">
+                <search string="Activities Analysis">
+                    <field name='rtio_liner_code'/>
+                    <field name='itemno'/>
+                    <field name='site'/>
+                    <field name='pu_id'/>
+                    <field name='floc_id'/>
+                    <field name='active_liners'/>
+                    <field name="sap_material"/>
+                    <field name='wearlinerid'/>
+                    <field name='duplicate'/>
+                    <field name='wearliner_db_internal_key'/>
+                    <field name="sap_material_description"/>
+                    <field name='dwg_linerdetail'/>
+                    <field name='sap_new_material'/>
+                    <filter string="Same RIO-Code With NA and Materials" name="same_rio_code_with_na"
+                            domain="[('rtio_liner_code_greater_one', '=', 'Same RIO-Code With NA')]"/>
+                    <filter string="Same Material With Different RIO-Code" name="same_material_with_different_rio_code"
+                            domain="[('same_material_with_diff_r_code', '=', 'Same Material With Different RIO-Code')]"/>
+
+                    <filter string="Riocode repeated multi times with same material"
+                            name="rtiocode_repeated_multitime_same_material"
+                            domain="[('rtiocode_repeated_multitime_same_material', '=', 'Riocode repeated multi same material')]"/>
+                    <filter string="Same Riocode with multi mat without NA"
+                            name="multiple_material_without_na_same_rio_code"
+                            domain="[('multiple_material_without_na_rcode', '=', 'Riocode with multi Material without NA')]"/>
+                    <filter string="Riocode repeated multi times with NA" name="multiple_material_with_na_same_rio_code"
+                            domain="[('multiple_material_with_na_rcode', '=', 'Riocode with multi Material with NA')]"/>
+
+                    <group expand="1" string="Group By">
+                        <filter string="FLOCs" name="group_by_floc_id" context="{'group_by': 'floc_id'}"/>
+                        <filter string="Site" name="group_by_site" context="{'group_by': 'site'}"/>
+
+                        <filter string="Rtio Liner Code" name="group_by_rtio_liner_code"
+                                context="{'group_by': 'rtio_liner_code'}"/>
+
+                        <filter string="Standard Liner" name="group_by_standard_liner"
+                                context="{'group_by': 'standard_liner'}"/>
+                        <filter string="DWG Liner Detail" name="group_by_dwg_linerdetail"
+                                context="{'group_by': 'dwg_linerdetail'}"/>
+                        <filter string="Liner Type" name="group_by_liner_type" context="{'group_by': 'liner_type'}"/>
+                        <filter string="SAP Material" name="group_by_sap_material"
+                                context="{'group_by': 'sap_material'}"/>
+                        <filter string="SAP Material Description" name="group_by_sap_material_description"
+                                context="{'group_by': 'sap_material_description'}"/>
+                        <filter string="Duplicate" name="group_by_duplicate" context="{'group_by': 'duplicate'}"/>
+                        <filter string="Wearliner Db Internal Key" name="group_by_wearliner_db_internal_key"
+                                context="{'group_by': 'wearliner_db_internal_key'}"/>
+                        <filter string="Created By" name="group_by_create_uid"
+                                context="{'group_by': 'create_uid'}"/>
+                        <filter string="Created On" name="group_by_create_date"
+                                context="{'group_by': 'create_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_product_liner_taxonomy_form" model="ir.ui.view">
+            <field name="name">product.liner_taxonomy.form</field>
+            <field name="model">product.liner_taxonomy</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="float-right">
+                            <label for="rtio_liner_code" string="* All Dimensions are in mm"
+                                   class="blinking-text oe_edit_only" style="color: crimson;"/>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name='rtio_liner_code' class="oe_read_only"/>
+                            </group>
+                            <group>
+                                <field name='wearlinerid' class="oe_read_only"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name='active_liners'/>
+                                <field name='site' options="{'no_create': True}"/>
+                                <field name='pu_id' options="{'no_create': True}"/>
+                                <field name='floc_id' options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name='dwg_linerdetail' widget="url"/>
+                                <field name='dwg_markingplan' widget="url"/>
+                                <field name='itemno' required="True"/>
+                                <field name='liner_detail_qty' required="True"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='material_type' options="{'no_create': True}"/>
+                                <field name='material_commercial_name' options="{'no_create': True}"/>
+                                <field name='material_grade' options="{'no_create': True}"/>
+                                <field name='material_grade_specs' options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name='profile' options="{'no_create': True}" required="True"/>
+                                <field name='similar_material' class="oe_read_only"/>
+                                <field name='liner_type' options="{'no_create': True}" required="True"/>
+                            </group>
+                        </group>
+
+                        <separator string="Dimensions"/>
+                        <group>
+                            <group>
+                                <field name='height' string='Height (mm)' required="True"/>
+                                <field name='width' string='Width (mm)' required="True"/>
+                            </group>
+                            <group>
+
+                                <field name='thickness' string='Thickness (mm)' required="True"/>
+                                <field name='mass' string='Mass (Kg)'/>
+                            </group>
+                        </group>
+                        <separator string="Fixing Specifications"/>
+                        <group>
+                            <group>
+                                <field name='no_of_fixings'/>
+                                <field name='fixing_type' options="{'no_create': True}"/>
+                                <field name='fixing_specs'/>
+                            </group>
+                            <group>
+                                <field name='no_of_lifting_lug'/>
+                                <field name='lifting_lug_config'/>
+                                <field name='fixingconfig'/>
+                            </group>
+                        </group>
+                        <label for="hole_ids" string="Hole Dimensions"/>
+                        <label for="hole_ids" style="color: crimson;"
+                               string=" (Always start from Top Left And in clockwise direction)"/>
+                        <group>
+                            <field name="hole_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="h_value"/>
+                                    <field name="v_value"/>
+                                </tree>
+                            </field>
+                        </group>
+
+                        <separator string="Special Features"/>
+                        <group>
+                            <group>
+                                <field name='tolerance' help="Always start with lower limit to upper limit"/>
+                                <field name='weld_overlay'/>
+                                <field name='as_drawn_opp_hand'/>
+                            </group>
+                            <group>
+                                <field name='ar_bar' required="1"/>
+                                <field name="ar_bar_position"
+                                       attrs="{'required': [('ar_bar', '=', 'yes')], 'invisible': ['|',('ar_bar', '=', False),('ar_bar', '=', 'no')]}"/>
+                                <field name='standard_liner'/>
+                                <field name="remarks"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="chamfer" string="Chamfer">
+                                <label for="chf_ids" style="color: crimson;"
+                                       string="Width upon height as per the liner cross section"/>
+                                <group>
+                                    <field name='chf_ids' nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name='sequence'/>
+                                            <field name='chf_value'/>
+                                            <field name='chamfer_configuration'/>
+                                            <field name='chamfer_position'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="cut" string="Cut">
+                                <label for="cut_ids" style="color: crimson;" string="Always across and then down, starting from left hand side.
+                        State the coordinates initial upon end position separated by vertical bar"/>
+                                <group>
+                                    <field name='cut_ids' nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name='sequence'/>
+                                            <field name='cut_value'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="cut_back_ids" string="Cut Back">
+                                <label for="cut_back_ids" style="color: crimson;" string="Always across and then down, starting
+                        from left hand side.State the initial reference coordinates And final
+                        coordinates being the shape dimension"/>
+                                <group>
+                                    <field name='cut_back_ids' nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name='sequence'/>
+                                            <field name='cut_back_value'/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="cut_out01" string="Cut Out">
+                                <label for="cut_out01" style="color: crimson;" string="Always across and then down, starting from left hand side.
+                                 State the initial reference coordinates And final coordinates being the shape dimension"/>
+                                <group>
+                                    <group>
+                                        <field name='cut_out01' help="Always across and then down, starting from left hand side.
+                                 State the initial reference coordinates And final coordinates being the shape dimension"/>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </page>
+                            <page name="hole01" string="Hole">
+                                <label for="hole01" style="color: crimson;"
+                                       string="Diameter separated by vertical bar with coordinates of the hole"/>
+                                <group>
+                                    <group>
+                                        <field name='hole01'/>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </page>
+                            <page name="wave01" string="Wave">
+                                <label for="wave01" style="color: crimson;" string="Radius of the wave profile"/>
+                                <group>
+                                    <group>
+                                        <field name='wave01'/>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <separator string="SAP Material Information"/>
+                        <group>
+                            <group>
+                                <field name='sap_material'/>
+                                <field name='sap_new_material'/>
+                            </group>
+                            <group>
+                                <field name='sap_material_description'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="material_remarks"/>
+                            </group>
+                            <group>
+                                <field name="found_in_sites" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="proposed_material_number" optional='hide'/>
+                            </group>
+                            <group>
+                                <field name="proposed_material_desc" optional='hide'/>
+                            </group>
+                        </group>
+                        <separator string="Special Features Additional"/>
+                        <group>
+                            <group>
+                                <field name='unspsc_code' options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name='comments'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='sap_short_text'/>
+                            </group>
+                            <group>
+                                <field name='sap_long_text'/>
+                            </group>
+                        </group>
+                        <group class="oe_read_only" col="12">
+                            <group colspan="2">
+                                <label for="wearliner_db_internal_key"/>
+                            </group>
+                            <group colspan="10">
+                                <field name='wearliner_db_internal_key' nolabel="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='duplicate' widget="badge"/>
+                            </group>
+                            <group></group>
+                            <button name="action_calculate_record_rtio_liner_code" class="oe_highlight"
+                                    string="Calculate Key" type="object"
+                            />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="product_liner_taxonomy_tree">
+            <field name="name">product.liner_taxonomy.tree.view</field>
+            <field name="model">product.liner_taxonomy</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='wearlinerid' optional='show'/>
+                    <field name='duplicate' widget="badge" decoration-success="duplicate == 'NO'"
+                           decoration-danger="duplicate == 'YES'" optional='hide'/>
+                    <field name='wearliner_db_internal_key' class="material_data" optional='hide'/>
+                    <field name='rtio_liner_code' optional='show'/>
+                    <field name='active_liners' optional='hide'/>
+                    <field name='site' optional='show'/>
+                    <field name='pu_id' optional='hide'/>
+                    <field name='floc_id' optional='show'/>
+                    <field name='dwg_linerdetail' widget="url" string="DWG Liner Detail" optional='hide'/>
+                    <field name='itemno' optional='hide'/>
+                    <field name='liner_detail_qty' optional='show'/>
+                    <field name='dwg_markingplan' widget="url" string="DWG Marking Plan" optional='hide'/>
+                    <field name='material_type' optional='show'/>
+                    <field name='material_commercial_name' optional='hide'/>
+                    <field name='material_grade' optional='show'/>
+                    <field name='material_grade_specs' optional='show'/>
+                    <field name='liner_type' optional='hide'/>
+                    <field name='profile' optional='hide'/>
+                    <field name='similar_material' optional='hide'/>
+                    <field name='height' string='Height (mm)' optional='hide'/>
+                    <field name='width' string='Width (mm)' optional='hide'/>
+                    <field name='thickness' string='Thickness (mm)' optional='hide'/>
+                    <field name='mass' string='Mass (Kg)' optional='hide'/>
+                    <field name='no_of_fixings' optional='hide'/>
+                    <field name='fixing_type' optional='hide'/>
+                    <field name='fixing_specs' optional='hide'/>
+                    <field name='no_of_lifting_lug' optional='hide'/>
+                    <field name='lifting_lug_config' optional='hide'/>
+                    <field name='fixingconfig' optional='hide'/>
+                    <field name='tolerance' optional='hide'/>
+                    <field name='weld_overlay' optional='hide'/>
+                    <field name='ar_bar' optional='hide'/>
+                    <field name="ar_bar_position" optional='hide'/>
+                    <field name="remarks" optional='hide'/>
+                    <field name='standard_liner' optional='hide'/>
+                    <field name='cut_out01' optional='hide'/>
+                    <field name='hole01' optional='hide'/>
+                    <field name='wave01' optional='hide'/>
+                    <field name='as_drawn_opp_hand' optional='hide'/>
+                    <field name='comments' optional='hide'/>
+                    <field name='sap_material' optional='show'/>
+                    <field name='sap_new_material' optional='hide'/>
+                    <field name='sap_material_description' optional='show'/>
+                    <field name="material_remarks" optional='hide'/>
+                    <field name='sap_short_text' optional='hide'/>
+                    <field name='sap_long_text' optional='hide'/>
+                    <field name='unspsc_code' optional='hide'/>
+                    <field name="pu_desc" optional='hide'/>
+                    <field name="parent_relation" optional='hide'/>
+                    <field name="floc_desc" optional='hide'/>
+                    <field name="criticality" optional='hide'/>
+                    <field name="data_id" optional='hide'/>
+                    <field name="dwg_ref_count" optional='hide'/>
+                    <field name="proposed_material_number" optional='hide'/>
+                    <field name="proposed_material_desc" optional='hide'/>
+
+                    <field name="write_uid" optional='hide'/>
+                    <field name="write_date" optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_site_tree">
+            <field name="name">rio.site.tree.view</field>
+            <field name="model">rio.site</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='short_text'/>
+                    <field name='description'/>
+                    <field name='global_site'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="material_type_tree">
+            <field name="name">material.type.tree.view</field>
+            <field name="model">material.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='description'/>
+                    <field name='short_code'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="material_type_name_tree">
+            <field name="name">material.type.name.tree.view</field>
+            <field name="model">material.type_name</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='material_grade'/>
+                    <field name='code'/>
+                    <field name='description'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="liner_type_tree">
+            <field name="name">liner.type.tree.view</field>
+            <field name="model">liner.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='description'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="liner_profile_tree">
+            <field name="name">liner.profile.tree.view</field>
+            <field name="model">liner.profile</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='description'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="liner_fixing_type_tree">
+            <field name="name">fixing.type.tree.view</field>
+            <field name="model">fixing.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='code'/>
+                    <field name='description'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_pu_tree">
+            <field name="name">rio.pu.tree.view</field>
+            <field name="model">rio.pu</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name="site"/>
+                    <field name='description'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_flocs_tree">
+            <field name="name">rio.flocs.tree.view</field>
+            <field name="model">rio.flocs</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='description'/>
+                    <field name="criticality"/>
+                    <field name='pu_id'/>
+                    <field name='process_area'/>
+                    <field name='asset_type'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_grade_specs_tree">
+            <field name="name">rio.grade_specs.tree.view</field>
+            <field name="model">rio.grade_specs</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='name'/>
+                    <field name='material_grade_id'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_standard_liner_with_drawing_tree">
+            <field name="name">standard.liner_with_drawing.tree.view</field>
+            <field name="model">standard.liner_with_drawing</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='standard_liner'/>
+                    <field name='drawing'/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

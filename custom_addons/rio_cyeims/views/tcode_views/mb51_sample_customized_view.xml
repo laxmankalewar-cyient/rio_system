@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mb51_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">mb51.sample_customized.search</field>
+            <field name="model">mb51.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='material'/>
+                    <field name='material_description'/>
+                    <field name='plant'/>
+                    <field name='storage_location'/>
+                    <field name='movement_type'/>
+                    <field name='movement_type_text'/>
+                    <field name='special_stock'/>
+                    <field name='order'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="mb51_sample_customized_tree">
+            <field name="name">mb51.sample_customized.tree_view</field>
+            <field name="model">mb51.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='material' optional='show'/>
+                    <field name='material_description' optional='show'/>
+                    <field name='plant' optional='show'/>
+                    <field name='storage_location' optional='show'/>
+                    <field name='movement_type' optional='show'/>
+                    <field name='movement_type_text' optional='show'/>
+                    <field name='special_stock' optional='show'/>
+                    <field name='order' optional='hide'/>
+                    <field name='material_document' optional='hide'/>
+                    <field name='material_docitem' optional='hide'/>
+                    <field name='posting_date' optional='hide'/>
+                    <field name='qty_in_un_of_entry' optional='hide'/>
+                    <field name='unit_of_entry' optional='hide'/>
+                    <field name='item' optional='hide'/>
+                    <field name='supplier' optional='hide'/>
+                    <field name='customer' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_mb51_sample_customized_form" model="ir.ui.view">
+            <field name="name">mb51.sample_customized.form</field>
+            <field name="model">mb51.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='material'/>
+                                <field name='material_description'/>
+                                <field name='plant'/>
+                                <field name='storage_location'/>
+                            </group>
+                            <group>
+                                <field name='movement_type'/>
+                                <field name='movement_type_text'/>
+                                <field name='special_stock'/>
+                                <field name='order'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='material_document'/>
+                                <field name='material_docitem'/>
+                                <field name='posting_date'/>
+                                <field name='qty_in_un_of_entry'/>
+                                <field name='unit_of_entry'/>
+                            </group>
+                            <group>
+                                <field name='item'/>
+                                <field name='supplier'/>
+                                <field name='customer'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

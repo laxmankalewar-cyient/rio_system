@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mm60_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">mm60.sample_customized.search</field>
+            <field name="model">mm60.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='material'/>
+                    <field name='plnt'/>
+                    <field name='val_type'/>
+                    <field name='material_description'/>
+                    <field name='last_chg'/>
+                    <field name='mtyp'/>
+                    <field name='matl_group'/>
+                    <field name='bun'/>
+                    <field name='pgr'/>
+                    <field name='abc'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="mm60_sample_customized_tree">
+            <field name="name">mm60.sample_customized.tree_view</field>
+            <field name="model">mm60.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='material'/>
+                    <field name='plnt'/>
+                    <field name='val_type'/>
+                    <field name='material_description' optional='show'/>
+                    <field name='last_chg' optional='show'/>
+                    <field name='mtyp' optional='show'/>
+                    <field name='matl_group' optional='show'/>
+                    <field name='bun' optional='show'/>
+                    <field name='pgr' optional='hide'/>
+                    <field name='abc' optional='hide'/>
+                    <field name='typ' optional='hide'/>
+                    <field name='valcl' optional='hide'/>
+                    <field name='pr' optional='hide'/>
+                    <field name='price' optional='hide'/>
+                    <field name='crcy' optional='hide'/>
+                    <field name='empty' optional='hide'/>
+                    <field name='created_by' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_mm60_sample_customized_form" model="ir.ui.view">
+            <field name="name">mm60.sample_customized.form</field>
+            <field name="model">mm60.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='material'/>
+                                <field name='plnt'/>
+                                <field name='val_type'/>
+                                <field name='material_description'/>
+                                <field name='last_chg'/>
+                                <field name='mtyp'/>
+                                <field name='matl_group'/>
+                            </group>
+                            <group>
+                                <field name='bun'/>
+                                <field name='pgr'/>
+                                <field name='abc'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='typ'/>
+                                <field name='valcl'/>
+                                <field name='pr'/>
+                            </group>
+                            <group>
+                                <field name='price'/>
+                                <field name='crcy'/>
+                                <field name='empty'/>
+                                <field name='created_by'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

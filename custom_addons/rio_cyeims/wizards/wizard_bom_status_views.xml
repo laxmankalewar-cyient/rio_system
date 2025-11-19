@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Tecnativa - Víctor Martínez
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="wizard_bom_status_move_form_view" model="ir.ui.view">
+        <field name="name">wizard.bom_status.form</field>
+        <field name="model">wizard.bom_status</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="alert alert-warning" role="alert">
+                    <i class="fa fa-exclamation-triangle mr-3" title="Warning" />
+                    <b>ATTENTION:</b>
+                    Make this change at your own risk.
+                </div>
+                <group>
+                    <group>
+                        <field name="bom_status" required="True"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="comment"/>
+                </group>
+                <footer>
+                    <button
+                        name="process"
+                        string="Change Status"
+                        class="btn-primary"
+                        type="object"
+                        confirm="Are you sure?"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="wizard_bom_status_move_act_window" model="ir.actions.act_window">
+        <field name="name">BoM Status</field>
+        <field name="res_model">wizard.bom_status</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="wizard_bom_report_form_view" model="ir.ui.view">
+        <field name="name">wizard.bom_report.form</field>
+        <field name="model">wizard.bom_report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name" required="True"/>
+                    </group>
+                </group>
+
+                <footer>
+                    <button
+                        name="process_bom_report"
+                        string="Generate Spares Finder"
+                        class="btn-primary"
+                        type="object"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="wizard_bom_spares_finder_act_window" model="ir.actions.act_window">
+        <field name="name">Spares Finder</field>
+        <field name="res_model">wizard.bom_report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

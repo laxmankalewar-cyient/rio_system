@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="graph_reo_site_taxonomy_liner">
+            <field name="name">Liners Captured in Taxonomy</field>
+            <field name="model">rio.site_graph</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Liners Captured in Taxonomy" type="pie">
+                    <field name="yandi_data" type="measure"/>
+                    <field name="data_label" />
+                </graph>
+            </field>
+        </record>
+
+        <record id="rio_site_yandi_dashboard_graph_action" model="ir.actions.act_window">
+            <field name="name">Liners Captured in Taxonomy</field>
+            <field name="res_model">rio.site_graph</field>
+            <field name="domain">[('site','=',3)]</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="graph_reo_site_taxonomy_liner"/>
+        </record>
+
+        <!--Rio Dashboard-->
+        <record model="ir.ui.view" id="board_rio_dash_view">
+            <field name="name">Rio Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Site Dashboard">
+                    <board style="1-1-1">
+                        <column>
+                            <action string="Site Assets" name="%(rio_site_graph_action)d"/>
+                            <action string="Liners Captured in Taxonomy" name="%(rio_site_yandi_dashboard_graph_action)d"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!--Rio Dashboard Action-->
+        <record model="ir.actions.act_window" id="open_board_rio_dash_action">
+            <field name="name">Rio Site Assets</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="usage">menu</field>
+            <field name="view_id" ref="board_rio_dash_view"/>
+        </record>
+    </data>
+    <data>
+
+        <!--Rio Dashboard Menu-->
+        <menuitem
+                id="menu_board_rio_dash"
+                parent="rio_main_menu"
+                action="open_board_rio_dash_action"
+                active="False"
+                sequence="18"/>
+    </data>
+</odoo>

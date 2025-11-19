@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+     <t t-name="Dashboard">
+        <div class="oh_dashboards">
+            <div class="container-fluid my-1 o_hr_dashboard"/>
+            <h1>
+             </h1>
+        </div>
+    </t>
+
+    <t t-name="SiteTiles">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 my-1">
+                    <div class="o_content">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>Site Filter</span>
+                            <button class="btn btn-info" id="show_all_sites">
+                                <i class="fa fa-eye"></i>
+                                Show Sites
+                            </button>
+                        </div>
+
+                        <div id="site_table_container" style="display: none; margin-top: 20px;">
+                            <table class="table table-bordered" id="site_table">
+                                <thead>
+                                    <tr>
+                                        <th>Site Name</th>
+                                        <th>Is Selected</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="set">
+            </div>
+          </div>
+        <div class="accounts-dashboard-wrap">
+            <div class="row main-section" id="new">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="SiteWithUniqueLiner">
+        <div class="row px-4" id="graphs">
+            <div class="year_to_date_graph_div col-sm-12 col-md-6 my-1">
+                <div class="chart-container card-shadow" id="tiles"> <div>
+                <h2>FLOCS Drawing Identified &amp; FLOCs Drawing Not Identified</h2>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="siteSelector" style="margin-bottom: 0;">Select Site:</label>
+                        <select id="siteSelector" class="form-select" style="width: auto;">
+                        </select>
+                    </div>
+                    <canvas id="flocs_identified_and_det_drw_not_identified_canvaspie"/>
+                    <div id="tooltip" style="position: absolute;display: none;background-color: #333;color: white;padding: 5px 10px;
+                                    border-radius: 5px;font-size: 12px;pointer-events: none;z-index: 999;"/>
+                    <button class="btn_info" id="flocs_identified_and_det_drw_not_identified_info"
+                            title="Show Details">
+                        <i class="fa fa-ellipsis-v"/>
+                    </button>
+                    <table class="graph_details_table" id="flocs_identified_and_det_drw_not_identified_table">
+                        <tr>
+                        <th>Site</th>
+                            <th>FLOCs Identified</th>
+                            <th>FLOCs Not Identified</th>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+
+            <div class="year_to_date_graph_div col-sm-12 col-md-6 my-1">
+                <div class="chart-container card-shadow" id="tiles">
+                    <h2>New Material created vs Total new material creation required</h2>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <label for="materialsiteSelector" style="margin-bottom: 0; font-weight: 500;">Select Site:</label>
+                        <select id="materialsiteSelector" class="form-select" style="width: 250px; font-size: 13px;"></select>
+                    </div>
+                    <div class="graph_canvas">
+                        <canvas id="new_material_created_and_required_table_canvaspie" style="height:300px;"></canvas>
+                    </div>
+
+                    <button class="btn_info" id="new_material_created_and_required_info" title="Show Details">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <table class="graph_details_table" id="new_material_created_and_required_table">
+                        <tr>
+                            <th>Site</th>
+                            <th>New Material Created</th>
+                            <th>New Material Required</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="year_to_date_graph_div col-sm-12 col-md-6 my-1">
+                <div class="chart-container card-shadow" id="tiles">
+                    <div style="height: 15px; max-height: 15px;">
+                        <h2>SAP Material Identified &amp; New Materials Required</h2>
+                        <button class="btn_info" id="sap_mtr_with_new_mtr_required_info" title="Show Details">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+
+                        <table class="graph_details_table" id="sap_mtr_with_new_mtr_required_table">
+                            <tr>
+                                <th>Site</th>
+                                <th>SAP Material Identified</th>
+                                <th>New Materials Required</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr/>
+                    <div class="graph_canvas" style="margin-top: 2px;">
+                        <canvas id="sap_mtr_with_new_mtr_required_canvas" height="250px" width="150px"/>
+                    </div>
+                </div>
+            </div>
+            <div class="year_to_date_graph_div col-sm-12 col-md-6 my-1">
+                <div class="chart-container card-shadow" id="tiles">
+                    <div style="height: 15px; max-height: 15px;">
+                        <h2>Duplicate Materials</h2>
+                        <button class="btn_info" id="duplicate_materials_info" title="Show Details">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+
+                        <table class="graph_details_table" id="duplicate_materials_table">
+                            <tr>
+                                <th>Site</th>
+                                <th>Duplicate Materials</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr/>
+                    <div class="graph_canvas" style="margin-top: 30px;">
+                        <canvas id="duplicate_materials_canvaspie" height="250px" width="150px"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="year_to_date_graph_div col-sm-12 col-md-6 my-1">
+                <div class="chart-container card-shadow" id="tiles">
+                    <div style="height: 15px; max-height: 15px;">
+                        <h2>Sites With Unique Liner</h2>
+                        <button class="btn_info" id="unique_liner_info" title="Show Details">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+
+                        <table class="graph_details_table" id="unique_liner_table">
+                            <tr>
+                                <th>Site</th>
+                                <th>Unique Liner Count</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr/>
+                    <div class="graph_canvas" style="margin-top: 30px;">
+                        <canvas id="canvaspie" height="250px" width="150px"/>
+                    </div>
+                </div>
+            </div>
+        <div class="year_to_date_graph_div col-sm-6 col-md-6 my-1">
+            <div class="chart-container card-shadow" id="tiles">
+                <div style="height: 15px; max-height: 15px;">
+                    <h2>New Existing Material</h2>
+                    <button class="btn_info" id="new_existing_material_info" title="Show Details">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <table class="graph_details_table" id="new_existing_material_table" style="display: none;">
+                        <tr>
+                            <th>Category</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Create New Material in SAP</td>
+                            <td>Creating New Material in SAP</td>
+                        </tr>
+                        <tr>
+                            <td>Material Found in SAP but not in Taxonomy</td>
+                            <td>Existing SAP material number from current FLOC BoM but not found in drawings</td>
+                        </tr>
+                        <tr>
+                            <td>Material Found in SAP Under a Different FLOC in Taxonomy</td>
+                            <td>SAP material number from current FLOC BoM found in drawing aligned to different FLOC</td>
+                        </tr>
+                        <tr>
+                            <td>Assign Existing SAP Material to the FLOC</td>
+                            <td>Liner spec captured from drawing aligned to FLOC &amp; matched to existing SAP material number not in current FLOC BoM</td>
+                        </tr>
+                        <tr>
+                            <td>Material Matches Both in Taxonomy &amp; SAP</td>
+                            <td>Current FLOC BoM SAP material number matches liner spec in drawing aligned to FLOC</td>
+                        </tr>
+                        <tr>
+                            <td>Assign Existing Material having same Riocode</td>
+                            <td>Identical liner spec matched to SAP material number at one site but liner from different site or FLOC with NA still to be confirmed by site if a true match</td>
+                        </tr>
+                        <tr>
+                            <td>Undefined</td>
+                            <td>FLOC has either no CT/PMA or has CT/PMA but no materials</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr/>
+                <div class="graph_canvas" style="margin-top: 30px;">
+                    <canvas id="canvas_existing_material" height="250px" width="150px"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </t>
+</templates>

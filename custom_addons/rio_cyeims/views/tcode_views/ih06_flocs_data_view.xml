@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ih06_floc_data_view_search" model="ir.ui.view">
+            <field name="name">ih06.floc_data.search</field>
+            <field name="model">ih06.floc_data</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='pu'/>
+                    <field name='floc'/>
+                    <field name='floc_desc'/>
+                    <field name='parent_floc'/>
+                    <field name='construction'/>
+                    <field name='constr_desc'/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ih06_floc_data_tree">
+            <field name="name">ih06.floc_data.tree_view</field>
+            <field name="model">ih06.floc_data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='pu'/>
+                    <field name='floc'/>
+                    <field name='floc_desc'/>
+                    <field name='parent_floc'/>
+                    <field name='construction'/>
+                    <field name='constr_desc'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ih06_floc_data_form" model="ir.ui.view">
+            <field name="name">ih06.floc_data.form</field>
+            <field name="model">ih06.floc_data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='pu'/>
+                                <field name='floc'/>
+                                <field name='floc_desc'/>
+
+                            </group>
+                            <group>
+                                <field name='parent_floc'/>
+                                <field name='construction'/>
+                                <field name='constr_desc'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

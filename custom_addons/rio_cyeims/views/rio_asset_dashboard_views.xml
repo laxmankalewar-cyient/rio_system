@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rio_asset_dashboard_tree">
+            <field name="name">rio.asset_dashboard.tree.view</field>
+            <field name="model">rio.asset_dashboard</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" >
+                    <field name="site" optional='hide'/>
+                    <field name="floc_id" optional='show'/>
+                    <field name="criticality" optional='show'/>
+                    <field name="total_liners" optional='show' sum="Total Liners"/>
+                    <field name="num_taxo_lines" optional='hide' />
+                    <field name="uniq_liners" optional='show'/>
+                    <field name="sap_mtr_identified" optional='show'/>
+                    <field name="new_mtr_required" optional='show'/>
+                    <field name="sap_mtr_update" optional='show'/>
+                    <field name="process_area" optional='hide'/>
+                    <field name="asset_type" optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_rio_asset_dashboard_form" model="ir.ui.view">
+            <field name="name">rio.asset_dashboard.form</field>
+            <field name="model">rio.asset_dashboard</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" >
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="site" options="{'no_create': True}"/>
+                                <field name="floc_id"/>
+                            </group>
+                            <group>
+                                <field name="criticality"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="total_liners"/>
+                            </group>
+                            <group>
+                                <field name="uniq_liners"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="sap_mtr_identified"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="new_mtr_required"/>
+                            </group>
+                            <group>
+                                <field name="sap_mtr_update"/>
+                            </group>
+                        </group>
+                        <separator/>
+                        <group>
+                            <group>
+                                <field name="process_area" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="asset_type" options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="num_taxo_lines"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

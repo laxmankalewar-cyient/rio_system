@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_liner_taxonomy_similar_materials" model="ir.actions.act_window">
+            <field name="name">Liner Taxonomy Similar Materials</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.liner_taxonomy</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="context">{'action' : 'similar_materials'}</field>
+        </record>
+
+        <record id="rio_grade_specs_tree_action" model="ir.actions.act_window">
+            <field name="name">Material Grade Specs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.grade_specs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_material_grade_tree_action" model="ir.actions.act_window">
+            <field name="name">Material Grade</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.material_grade</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_pu_tree_action" model="ir.actions.act_window">
+            <field name="name">Production Unit</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.pu</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_flocs_tree_action" model="ir.actions.act_window">
+            <field name="name">Chute FLOCs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.flocs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_site_dashboard_tree_action" model="ir.actions.act_window">
+            <field name="name">Site Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.site_dashboard</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+
+        <record id="rio_asset_type_tree_action" model="ir.actions.act_window">
+            <field name="name">Asset Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.asset_type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_process_area_tree_action" model="ir.actions.act_window">
+            <field name="name">Process Area</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.process_area</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_asset_dashboard_tree_action" model="ir.actions.act_window">
+            <field name="name">FLOCs Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.asset_dashboard</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+        <record id="product_liner_taxonomy_tree_action" model="ir.actions.act_window">
+            <field name="name">Liner Taxonomy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.liner_taxonomy</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+        <record id="product_liner_file_tree_action" model="ir.actions.act_window">
+            <field name="name">Liner Files</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.liner_file</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_site_action" model="ir.actions.act_window">
+            <field name="name">Rio Site</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.site</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="material_type_tree_action" model="ir.actions.act_window">
+            <field name="name">Material Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">material.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="material_type_name_tree_action" model="ir.actions.act_window">
+            <field name="name">Material Commercial Name</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">material.type_name</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="liner_type_tree_action" model="ir.actions.act_window">
+            <field name="name">Liner Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">liner.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="liner_profile_tree_action" model="ir.actions.act_window">
+            <field name="name">Liner Profile</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">liner.profile</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="liner_fixing_type_tree_action" model="ir.actions.act_window">
+            <field name="name">Fixing Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fixing.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_site_graph_action" model="ir.actions.act_window">
+            <field name="name">Site Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rio.site_graph</field>
+            <field name="view_mode">tree,graph,pivot</field>
+        </record>
+
+        <record id="rio_flocs_register" model="ir.actions.act_window">
+            <field name="name">FLOC's Register</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">flocs.register</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+        <record id="rio_unspsc_code_action" model="ir.actions.act_window">
+            <field name="name">UNSPSC Code</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">unspsc.code</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_taxonomy_bom_structure_action" model="ir.actions.act_window">
+            <field name="name">Taxonomy BOM Structure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taxonomy.bom_structure</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_standard_liner_with_drawing_action" model="ir.actions.act_window">
+            <field name="name">STD Liner With DWG</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">standard.liner_with_drawing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_spares_finder_action" model="ir.actions.act_window">
+            <field name="name">Spares Finder</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">spares.finder_report</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="rio_main_menu" name="RIO System" sequence="1"
+                  web_icon="rio_cyeims,static/description/icon.png"/>
+
+        <record id="dashboard_action" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">rio_dashboard_tag</field>
+        </record>
+        <menuitem id="dashboard"
+                  name="Dashboard"
+                  parent="rio_main_menu"
+                  action="dashboard_action"
+                  sequence="-10"/>
+
+        <menuitem id="rio_asset_dashboard_tree_menu"
+                  name="Asset Dashboard"
+                  parent="rio_main_menu"
+                  sequence="19"
+                  groups="group_rio_dashboard_admin"
+        />
+        <menuitem id="rio_site_dashboard_tree_menu"
+                  name="Site Dashboard"
+                  parent="rio_asset_dashboard_tree_menu"
+                  sequence="1"
+                  action="rio_site_dashboard_tree_action"
+        />
+        <menuitem id="rio_flocs_dashboard_tree_menu"
+                  name="FLOCs Dashboard"
+                  parent="rio_asset_dashboard_tree_menu"
+                  sequence="2"
+                  action="rio_asset_dashboard_tree_action"
+        />
+
+        <menuitem id="product_liner_taxonomy_menu"
+                  name="Liner Taxonomy"
+                  parent="rio_main_menu"
+                  sequence="20"
+                  action="product_liner_taxonomy_tree_action"
+        />
+        <menuitem id="flocs_register_menu"
+                  name="FLOC's Register"
+                  parent="rio_main_menu"
+                  sequence="21"
+                  action="rio_flocs_register"
+        />
+        <menuitem id="taxonomy_bom_structure_menu"
+                  name="BoM Structure"
+                  parent="rio_main_menu"
+                  sequence="22"
+                  action="rio_taxonomy_bom_structure_action"
+        />
+        <menuitem id="spares_finder_menu"
+                  name="Spares Finder"
+                  parent="rio_main_menu"
+                  sequence="23"
+                  action="rio_spares_finder_action"
+        />
+
+        <menuitem id="rio_configuration_menu" name="Configuration"
+                  parent="rio_main_menu" sequence="200"/>
+
+
+        <menuitem id="rio_site_menu" name="Rio Site"
+                  parent="rio_configuration_menu" sequence="1" action="rio_site_action"/>
+
+        <menuitem id="material_type_menu" name="Material Type"
+                  parent="rio_configuration_menu" sequence="2" action="material_type_tree_action"/>
+
+        <menuitem id="material_type_name_menu" name="Material Commercial Name"
+                  parent="rio_configuration_menu" sequence="3" action="material_type_name_tree_action"/>
+
+        <menuitem id="liner_type_menu" name="Liner Type"
+                  parent="rio_configuration_menu" sequence="4" action="liner_type_tree_action"/>
+
+        <menuitem id="liner_profile_menu" name="Liner Profile"
+                  parent="rio_configuration_menu" sequence="5" action="liner_profile_tree_action"/>
+
+        <menuitem id="liner_fixing_type_tree_menu" name="Fixing Type"
+                  parent="rio_configuration_menu" sequence="6" action="liner_fixing_type_tree_action"/>
+
+
+        <menuitem id="rio_asset_type_menu" name="Asset Type"
+                  parent="rio_configuration_menu" sequence="8"
+                  action="rio_asset_type_tree_action"/>
+
+        <menuitem id="rio_process_area_menu" name="Process Area"
+                  parent="rio_configuration_menu" sequence="9"
+                  action="rio_process_area_tree_action"/>
+
+        <menuitem id="rio_pu_menu" name="PU"
+                  parent="rio_configuration_menu" sequence="11"
+                  action="rio_pu_tree_action"/>
+        <menuitem id="rio_flocs_menu" name="Chute FLOCs"
+                  parent="rio_configuration_menu" sequence="12"
+                  action="rio_flocs_tree_action"/>
+
+        <menuitem id="rio_grade_specs_menu" name="Material Grade Specs"
+                  parent="rio_configuration_menu" sequence="13"
+                  action="rio_grade_specs_tree_action"/>
+        <menuitem id="rio_material_grade_menu" name="Material Grade"
+                  parent="rio_configuration_menu" sequence="14"
+                  action="rio_material_grade_tree_action"/>
+        <menuitem id="rio_unspsc_code_menu" name="UNSPSC Code"
+                  parent="rio_configuration_menu" sequence="15"
+                  action="rio_unspsc_code_action"/>
+        <menuitem id="rio_standard_liner_with_drawing_menu" name="STD Liner With DWG"
+                  parent="rio_configuration_menu" sequence="16"
+                  action="rio_standard_liner_with_drawing_action"/>
+
+        <menuitem id="product_liner_file_menu" name="Import Liner Taxonomy"
+                  parent="rio_configuration_menu" sequence="139"
+                  action="product_liner_file_tree_action"/>
+
+        <menuitem id="scheduled_action" name="Scheduled Action"
+                  parent="rio_configuration_menu" sequence="140"
+                  action="base.ir_cron_act"/>
+    </data>
+</odoo>

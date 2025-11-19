@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="rio_iw38_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">IW38 - PM Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iw38.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_mb51_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">MB51</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mb51.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_mb52_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">MB52</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mb52.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_me2m_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">ME2M - Purchasing Documents</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">me2m.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_mm60_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">MM60 - Materials</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mm60.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_spare_finder_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Spare Finder</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">spare.finder_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_z4190_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z4190</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z4190.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_z4191_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z4191 - Technical Object</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z4191.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="rio_z5001_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z5001</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z5001.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_z7116_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z7116</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z7116.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_z7131_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z7131 - Material Classification &amp; PU</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z7131.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_z7134_sample_customized_tree_action" model="ir.actions.act_window">
+            <field name="name">Z7134</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">z7134.sample_customized</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_ih0_bom_data_tree_action" model="ir.actions.act_window">
+            <field name="name">IH01</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ih01.bom_data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="rio_ih06_floc_data_tree_action" model="ir.actions.act_window">
+            <field name="name">IH06</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ih06.floc_data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="rio_sap_tcode_menu" name="SAP TCode"
+                  parent="rio_main_menu" sequence="199"/>
+
+        <menuitem id="rio_iw38_sample_customized_menu" name="IW38 - PM Orders"
+                  parent="rio_sap_tcode_menu" sequence="1" action="rio_iw38_sample_customized_tree_action"/>
+
+        <menuitem id="rio_mb51_sample_customized_menu" name="MB51"
+                  parent="rio_sap_tcode_menu" sequence="2" action="rio_mb51_sample_customized_tree_action"/>
+        <menuitem id="rio_mb52_sample_customized_menu" name="MB52"
+                  parent="rio_sap_tcode_menu" sequence="3" action="rio_mb52_sample_customized_tree_action"/>
+        <menuitem id="rio_me2m_sample_customized_menu" name="ME2M - Purchasing Documents"
+                  parent="rio_sap_tcode_menu" sequence="4" action="rio_me2m_sample_customized_tree_action"/>
+        <menuitem id="rio_mm60_sample_customized_menu" name="MM60 - Materials"
+                  parent="rio_sap_tcode_menu" sequence="5" action="rio_mm60_sample_customized_tree_action"/>
+        <menuitem id="rio_spare_finder_customized_menu" name="Spare Finder"
+                  parent="rio_sap_tcode_menu" sequence="6" action="rio_spare_finder_customized_tree_action"/>
+        <menuitem id="rio_z4190_sample_customized_menu" name="Z4190"
+                  parent="rio_sap_tcode_menu" sequence="7" action="rio_z4190_sample_customized_tree_action"/>
+        <menuitem id="rio_z4191_sample_customized_menu" name="Z4191 - Technical Object"
+                  parent="rio_sap_tcode_menu" sequence="8" action="rio_z4191_sample_customized_tree_action"/>
+        <menuitem id="rio_z5001_sample_customized_menu" name="Z5001"
+                  parent="rio_sap_tcode_menu" sequence="9" action="rio_z5001_sample_customized_tree_action"/>
+        <menuitem id="rio_z7116_sample_customized_menu" name="Z7116"
+                  parent="rio_sap_tcode_menu" sequence="10" action="rio_z7116_sample_customized_tree_action"/>
+        <menuitem id="rio_z7131_sample_customized_menu" name="Z7131- Material Classification &amp; PU"
+                  parent="rio_sap_tcode_menu" sequence="11" action="rio_z7131_sample_customized_tree_action"/>
+        <menuitem id="rio_z7134_sample_customized_menu" name="Z7134"
+                  parent="rio_sap_tcode_menu" sequence="12" action="rio_z7134_sample_customized_tree_action"/>
+        <menuitem id="rio_ih06_flocs_data_menu" name="IH06"
+                  parent="rio_sap_tcode_menu" sequence="13" action="rio_ih06_floc_data_tree_action"/>
+        <menuitem id="rio_ih0_bom_menu" name="IH01"
+                  parent="rio_sap_tcode_menu" sequence="14" action="rio_ih0_bom_data_tree_action"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="app_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">app.res.config.settings.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="about" position="replace">
+                    <div id='about'>
+                        <h2>About</h2>
+                        <div class="row mt16 o_settings_container" name="about_setting_container">
+                            <div class='col-12 col-lg-6 o_setting_box' id='appstore'>
+                                <div class="d-flex">
+                                    <div class="o_setting_right_pane">
+                                        <div class="user-heading">
+                                            <h3>
+                                                CyEIMS Team (Community Edition)
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <div class="tab-content">
+                                                <div role="tabpanel" id="settings"
+                                                     class="tab-pane active text-muted o_web_settings_compact_subtitle">
+                                                    <small>Copyright © 2024
+                                                        <a target="_blank"
+                                                           href="#"
+                                                           style="text-decoration: underline;">
+                                                            kts S.A.
+                                                        </a>
+                                                        <a id="license" target="_blank"
+                                                           href="#"
+                                                           style="text-decoration: underline;">GNU LGPL Licensed
+                                                        </a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </field>
+        </record>
+    </data>
+</odoo>

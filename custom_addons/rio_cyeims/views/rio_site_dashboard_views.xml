@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rio_site_graph_tree">
+            <field name="name">rio.site_graph.tree.view</field>
+            <field name="model">rio.site_graph</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="site" optional='show'/>
+                    <field name="data_label" optional='show'/>
+                    <field name="yandi_data" optional='show'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rio_site_dashboard_tree">
+            <field name="name">rio.site_dashboard.tree.view</field>
+            <field name="model">rio.site_dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="site" optional='show'/>
+                    <field name="taxo_entries" optional='hide'/>
+                    <field name="repeated_liner" optional='show'/>
+                    <field name="unique_with_material" optional='show'/>
+                    <field name="unique_with_na" optional='show'/>
+                    <field name="unique_liner" optional='show'/>
+                    <field name="rtio_multiple_mtr" class="rtio_multiple_mtr_class my-url" optional='show'/>
+                    <field name="material_count" class="my-url" optional='show'/>
+                    <field name="sap_mtr_identified" optional='show'/>
+                    <field name="new_mtr_required" optional='show'/>
+                    <field name="pu_identified" optional='show'/>
+                    <field name="flocs_identified" optional='show'/>
+                    <field name="layout_drawings" optional='show'/>
+                    <field name="detailed_drawings" optional='show'/>
+                    <field name="flocs_det_drw_not_identified" optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_rio_site_dashboard_form" model="ir.ui.view">
+            <field name="name">rio.site_dashboard.form</field>
+            <field name="model">rio.site_dashboard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="site" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="visible_dashboard"/>
+                                <field name="taxo_entries"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="repeated_liner"/>
+                            </group>
+                            <group>
+                                <field name="unique_liner"/>
+                                <field name="global_site" invisible="1"/>
+                            </group>
+
+                        </group>
+                        <group attrs="{'invisible': [('global_site', '=', False)]}">
+                            <group >
+                                <field name="same_riocode_with_na"/>
+                                <field name="riocode_repeated_multi_same_material"/>
+
+                            </group>
+                            <group>
+                                <field name="riocode_multi_mat_without_na"/>
+                                <field name="riocode_multi_mat_with_na"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="rtio_multiple_mtr" class="my-url"/>
+                            </group>
+                            <group>
+                                <field name="material_count"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="sap_mtr_identified"/>
+                                <field name="new_mtr_required"/>
+                            </group>
+                            <group>
+                                <field name="flocs_identified"/>
+                                <field name="flocs_det_drw_not_identified"/>
+                            </group>
+                        </group>
+                        <separator/>
+                        <group>
+                            <group>
+                                <field name="layout_drawings"/>
+                            </group>
+                            <group>
+                                <field name="detailed_drawings"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="pu_identified"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

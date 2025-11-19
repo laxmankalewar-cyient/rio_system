@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="z4191_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">z4191.sample_customized.search</field>
+            <field name="model">z4191.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='plant'/>
+                    <field name='pu_label'/>
+                    <field name='functional_location'/>
+                    <field name='functional_loc_desc'/>
+                    <field name='material_pathway'/>
+                    <field name='assembly'/>
+                    <field name='material'/>
+                    <field name='material_description'/>
+                    <field name='matl_group'/>
+                    <field name='matlstatus'/>
+                    <field name='val_cat'/>
+                    <field name='spl_ind'/>
+                    <field name='equipment'/>
+                    <field name='bom_quanty'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="z4191_sample_customized_tree">
+            <field name="name">z4191.sample_customized.tree_view</field>
+            <field name="model">z4191.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='plant'/>
+                    <field name='pu_label'/>
+                    <field name='functional_location' optional='hide'/>
+                    <field name='functional_loc_desc' optional='hide'/>
+                    <field name='material_pathway' optional='hide'/>
+                    <field name='assembly' optional='show'/>
+                    <field name='material' optional='show'/>
+                    <field name='material_description' optional='hide'/>
+                    <field name='matl_group' optional='hide'/>
+                    <field name='matlstatus' optional='hide'/>
+                    <field name='val_cat' optional='hide'/>
+                    <field name='spl_ind' optional='hide'/>
+                    <field name='equipment' optional='hide'/>
+                    <field name='bom_quanty' optional='show'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_z4191_sample_customized_form" model="ir.ui.view">
+            <field name="name">z4191.sample_customized.form</field>
+            <field name="model">z4191.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='plant'/>
+                                <field name='pu_label'/>
+                            </group>
+                            <group>
+                                <field name='functional_location'/>
+                                <field name='functional_loc_desc'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='material_pathway'/>
+                                <field name='assembly'/>
+                                <field name='material'/>
+                                <field name='material_description'/>
+                                <field name='matl_group'/>
+                                <field name='matlstatus'/>
+                            </group>
+                            <group>
+                                <field name='val_cat'/>
+                                <field name='spl_ind'/>
+                                <field name='equipment'/>
+                                <field name='bom_quanty'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

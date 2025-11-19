@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="z5001_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">z5001.sample_customized.search</field>
+            <field name="model">z5001.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='material'/>
+                    <field name='material_description'/>
+                    <field name='inventory'/>
+                    <field name='base_unit_of_measure'/>
+                    <field name='safety_stock'/>
+                    <field name='minimum_stock'/>
+                    <field name='minimum_inventory'/>
+                    <field name='maximum_stock'/>
+                    <field name='maximum_inventory'/>
+                    <field name='traffic_light'/>
+
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="z5001_sample_customized_tree">
+            <field name="name">z5001.sample_customized.tree_view</field>
+            <field name="model">z5001.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='material'/>
+                    <field name='material_description' optional='show'/>
+                    <field name='inventory'/>
+                    <field name='base_unit_of_measure'/>
+                    <field name='safety_stock'/>
+                    <field name='minimum_stock'/>
+                    <field name='minimum_inventory' optional='show'/>
+                    <field name='maximum_stock' optional='hide'/>
+                    <field name='maximum_inventory' optional='hide'/>
+                    <field name='traffic_light' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_z5001_sample_customized_form" model="ir.ui.view">
+            <field name="name">z5001.sample_customized.form</field>
+            <field name="model">z5001.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='material'/>
+                                <field name='material_description'/>
+                            </group>
+                            <group>
+                                <field name='inventory'/>
+                                <field name='base_unit_of_measure'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='safety_stock'/>
+                                <field name='minimum_stock'/>
+                                <field name='minimum_inventory'/>
+                            </group>
+                            <group>
+                                <field name='maximum_stock'/>
+                                <field name='maximum_inventory'/>
+                                <field name='traffic_light'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

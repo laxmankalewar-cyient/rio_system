@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="z7134_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">z7134.sample_customized.search</field>
+            <field name="model">z7134.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='riomatno'/>
+                    <field name='riomatdesc'/>
+                    <field name='int_no'/>
+                    <field name='internal_material_description'/>
+                    <field name='mpn'/>
+                    <field name='mfr'/>
+                    <field name='matlstatus'/>
+                    <field name='statdesc'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="z7134_sample_customized_tree">
+            <field name="name">z7134.sample_customized.tree_view</field>
+            <field name="model">z7134.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='riomatno'/>
+                    <field name='riomatdesc'/>
+                    <field name='int_no'/>
+                    <field name='internal_material_description'/>
+                    <field name='mpn'/>
+                    <field name='mfr'/>
+                    <field name='matlstatus'/>
+                    <field name='statdesc'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_z7134_sample_customized_form" model="ir.ui.view">
+            <field name="name">z7134.sample_customized.form</field>
+            <field name="model">z7134.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='riomatno'/>
+                                <field name='riomatdesc'/>
+                            </group>
+                            <group>
+                                <field name='int_no'/>
+                                <field name='internal_material_description'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='mpn'/>
+                                <field name='mfr'/>
+                            </group>
+                            <group>
+                                <field name='matlstatus'/>
+                                <field name='statdesc'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

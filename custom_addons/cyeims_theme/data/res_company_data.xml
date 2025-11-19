@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="base.main_company" model="res.company">
+            <field name="name">CYEIMS</field>
+            <field name="favicon" model="company.kts" eval="obj()._get_kts_con('favicon.ico')"/>
+        </record>
+	</data>
+</odoo>

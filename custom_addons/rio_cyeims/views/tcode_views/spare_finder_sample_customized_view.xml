@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="spare_finder_customized_view_search" model="ir.ui.view">
+            <field name="name">spare.finder_customized.search</field>
+            <field name="model">spare.finder_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='sphera'/>
+                    <field name='erp_instance'/>
+                    <field name='material'/>
+                    <field name='short_description'/>
+                    <field name='long_description'/>
+                    <field name='manufacturer'/>
+                    <field name='part_number'/>
+                    <field name='base_uom'/>
+                    <field name='un_spsc_code'/>
+
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="spare_finder_customized_tree">
+            <field name="name">spare.finder_customized.tree_view</field>
+            <field name="model">spare.finder_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='sphera'/>
+                    <field name='erp_instance'/>
+                    <field name='material'/>
+                    <field name='short_description' optional='show'/>
+                    <field name='long_description' optional='hide'/>
+                    <field name='manufacturer' optional='show'/>
+                    <field name='part_number' optional='show'/>
+                    <field name='base_uom' optional='hide'/>
+                    <field name='un_spsc_code' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_spare_finder_customized_form" model="ir.ui.view">
+            <field name="name">spare.finder_customized.form</field>
+            <field name="model">spare.finder_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='sphera'/>
+                                <field name='erp_instance'/>
+                            </group>
+                            <group>
+                                <field name='material'/>
+                                <field name='short_description'/>
+                                <field name='long_description'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='manufacturer'/>
+                                <field name='part_number'/>
+                            </group>
+                            <group>
+                                <field name='base_uom'/>
+                                <field name='un_spsc_code'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

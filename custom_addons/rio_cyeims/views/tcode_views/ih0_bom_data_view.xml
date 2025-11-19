@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ih0_bom_data_view_search" model="ir.ui.view">
+            <field name="name">ih01.bom_data.search</field>
+            <field name="model">ih01.bom_data</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='navi_pu'/>
+                    <field name='pu'/>
+                    <field name='site'/>
+                    <field name='pu_desc'/>
+                    <field name='ct'/>
+                    <field name="floc"/>
+                    <field name='pma'/>
+                    <field name='material'/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ih0_bom_data_tree">
+            <field name="name">ih01.bom_data.tree_view</field>
+            <field name="model">ih01.bom_data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='site'/>
+                    <field name='navi_pu'/>
+                    <field name='navi_pu_desc' optional='hide'/>
+                    <field name="pu"/>
+                    <field name='pu_desc'  optional='hide'/>
+                    <field name='parent_floc'/>
+                    <field name='parent_floc_desc' optional='hide'/>
+                    <field name='floc'/>
+                    <field name='floc_desc'  optional='hide'/>
+                    <field name='ct'/>
+                    <field name='ct_desc' optional='hide'/>
+                    <field name='parent_pma' optional='hide'/>
+                    <field name='pma' optional='show'/>
+                    <field name='pma_desc' optional='hide'/>
+                    <field name='material' optional='show'/>
+                    <field name='material_desc' optional='hide'/>
+                    <field name='material_qty' optional='show'/>
+                    <field name='material_unit' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ih0_bom_data_form" model="ir.ui.view">
+            <field name="name">ih01.bom_data.form</field>
+            <field name="model">ih01.bom_data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='site'/>
+                                <field name='navi_pu'/>
+                                <field name='navi_pu_desc'/>
+                                <field name="pu"/>
+                                <field name='pu_desc'/>
+                            </group>
+                            <group>
+                                <field name='parent_floc'/>
+                                <field name='parent_floc_desc'/>
+                                <field name='floc'/>
+                                <field name='floc_desc'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='ct'/>
+                                <field name='ct_desc'/>
+                                 <field name='parent_pma'/>
+                                <field name='pma' />
+                                <field name='pma_desc'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='material'/>
+                                <field name='material_desc' />
+                                <field name='material_qty'/>
+                                <field name='material_unit'/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

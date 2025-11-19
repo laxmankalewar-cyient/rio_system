@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for lead mining requests -->
+        <record id="ir_sequence_new_pma" model="ir.sequence">
+            <field name="name">New PMA</field>
+            <field name="code">rio.new.pma</field>
+            <field name="prefix">NEWPMA</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="ir_sequence_new_ct" model="ir.sequence">
+            <field name="name">New CT</field>
+            <field name="code">rio.new.ct</field>
+            <field name="prefix">NEWCT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="ir_sequence_new_material" model="ir.sequence">
+            <field name="name">New Material Number</field>
+            <field name="code">rio.new.material_number</field>
+            <field name="prefix">NEWMAT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

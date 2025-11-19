@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="product_liner_file_tree">
+            <field name="name">product.liner_file.tree.view</field>
+            <field name="model">product.liner_file</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="file_name"/>
+                    <field name="site"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_product_liner_file_form" model="ir.ui.view">
+            <field name="name">product.liner_file.form</field>
+            <field name="model">product.liner_file</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="file_name"/>
+                            <group>
+                                <field name="file_id" placeholder="Select File from DMS"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="is_bom_file"/>
+                                <field name="site" attrs="{'invisible': [('is_bom_file', '=', False)]}"/>
+                                <field name="output_file" attrs="{'invisible': [('is_bom_file', '=', False)]}" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="is_output" invisible="1"/>
+                                <button name="action_process_data" class="oe_highlight"
+                                       string="Process Data" type="object"
+                                />
+                            </group>
+                            <group>
+                                <button name="create_update_bom_data" class="oe_highlight"
+                                       string="Process BoM Files" type="object"
+                                        attrs="{'invisible': [('is_output', '=', False)]}"
+                                />
+                            </group>
+                        </group>
+                        <notebook>
+                        <page string="Log">
+                            <field name="log"/>
+                        </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

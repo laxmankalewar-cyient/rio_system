@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="taxonomy_bom_structure_view_search" model="ir.ui.view">
+            <field name="name">taxonomy.bom_structure.search</field>
+            <field name="model">taxonomy.bom_structure</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='site'/>
+                    <field name='rio_code'/>
+                    <field name='item_no'/>
+                    <field name='package_unit'/>
+                    <field name='functional_location'/>
+                    <field name='new_existing_material'/>
+                    <field name='ct'/>
+                    <field name='pma'/>
+                    <field name='pma_description'/>
+                    <field name='material_number'/>
+                    <field name='material_description'/>
+                    <field name='material_qty'/>
+                    <field name='material_unit'/>
+                    <filter string="Same RIO-Code With NEW and Material Number(2 or 4 Series)"
+                            name="rio_code_with_new_2or4"
+                            domain="[('diff_r_code', '=', 'Rtio Liner Code (Count > 1) with NEW and Material number(2 or 4 series)')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Package Unit" name="package_unit" context="{'group_by': 'package_unit'}"/>
+                        <filter string="Flocs" name="functional_location"
+                                context="{'group_by': 'functional_location'}"/>
+                        <filter string="Material Number" name="material_number"
+                                context="{'group_by': 'material_number'}"/>
+                        <filter string="CT" name="ct" context="{'group_by': 'ct'}"/>
+                        <filter string="PMA" name="pma" context="{'group_by': 'pma'}"/>
+                        <filter string="New Existing Material" name="new_existing_material"
+                                context="{'group_by': 'new_existing_material'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="taxonomy_bom_structure_tree">
+            <field name="name">taxonomy.bom_structure.tree_view</field>
+            <field name="model">taxonomy.bom_structure</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <header>
+                        <button name="button_bom_status_change" type="object" string="BoM Status"
+                                class="btn-custom-other" groups="rio_cyeims.group_rio_manager"/>
+                        <button name="button_generate_spares_finder" type="object" string="Generate Spares Finder"
+                                class="btn-custom-info" groups="rio_cyeims.group_rio_manager"/>
+                    </header>
+                    <field name='site'/>
+                    <field name='package_unit'/>
+                    <field name='functional_location'/>
+                    <field name='floc_description' optional='hide'/>
+                    <field name='ct'/>
+                    <field name='parent_pma' optional='hide'/>
+                    <field name='pma'/>
+                    <field name='pma_description' optional='hide'/>
+                    <field name='material_number'/>
+                    <field name="new_material_number"/>
+                    <field name='material_description' optional='hide'/>
+                    <field name='material_qty' optional='show'/>
+                    <field name='material_unit' optional='hide'/>
+                    <field name='sap_short_text' optional='hide'/>
+                    <field name='sap_long_text' optional='hide'/>
+                    <field name='new_existing_material' optional='show'/>
+                    <field name='action' optional='hide'/>
+                    <field name='material_where_used' optional='show'/>
+                    <field name='rio_code' optional='show'/>
+                    <field name='liner_id' optional='show'/>
+                    <field name='std_liner' optional='hide'/>
+                    <field name='item_no' optional='hide'/>
+                    <field name='layout_drawing_no' optional='hide' widget="url"/>
+                    <field name='detail_drawing' optional='hide' widget="url"/>
+                    <field name='comment' optional='hide'/>
+                    <field name='bom_status' optional='show' widget="badge"
+                           decoration-warning="bom_status == 'approved_to_create'"
+                           decoration-success="bom_status == 'approved_to_update'"
+                           decoration-info="bom_status == 'approved_to_delete'"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_taxonomy_bom_structure_form" model="ir.ui.view">
+            <field name="name">taxonomy.bom_structure.form</field>
+            <field name="model">taxonomy.bom_structure</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='site'/>
+                                <field name='package_unit'/>
+                                <field name='functional_location'/>
+                                <field name='floc_description'/>
+                                <field name='ct'/>
+
+                            </group>
+                            <group>
+                                <field name='pma'/>
+                                <field name='pma_description'/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='material_number'/>
+                                <field name='material_description'/>
+                                <field name='action'/>
+                            </group>
+                            <group>
+                                <field name="new_material_number"/>
+                                <field name='material_qty'/>
+                                <field name='material_unit'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='new_existing_material'/>
+                            </group>
+                            <group>
+                                <field name='material_where_used'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='rio_code'/>
+                                <field name='liner_id'/>
+                                <field name='std_liner'/>
+                                <field name='item_no'/>
+                                <field name='layout_drawing_no'/>
+                                <field name='detail_drawing'/>
+                            </group>
+                            <group>
+                                <field name='sap_short_text'/>
+                                <field name='sap_long_text'/>
+                                <field name='comment'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='plant'/>
+                                <field name='last_wo_used'/>
+                            </group>
+                            <group>
+                                <field name='goods_movement'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='current_stock'/>
+                            </group>
+                            <group>
+                                <field name='sl'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='task_list'/>
+                            </group>
+                            <group>
+                                <field name="last_wo_used_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='stores_min_max'/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='supplier_details'/>
+                                <field name='supplier_part_no'/>
+                            </group>
+                            <group>
+                                <field name='quotes_price'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='supply_lead_time'/>
+                            </group>
+                            <group>
+                                <field name='long_text'/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name='material_name'/>
+                                <field name='manufacturer_name'/>
+                            </group>
+                            <group>
+                                <field name='manufacturer_part_no'/>
+                                <field name='manufacturer_description'/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_spares_finder_report_form" model="ir.ui.view">
+            <field name="name">spares.finder_report.form</field>
+            <field name="model">spares.finder_report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="is_system" invisible="1"/>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" attrs="{'readonly': [('is_system', '=', True)]}"/>
+                        </h1>
+                        <group>
+                            <group>
+
+                                <field name="re_update_bom" attrs="{'readonly': [('is_system', '=', True)]}"/>
+                                <field name="spares_finder" widget="many2many_binary"
+                                       attrs="{'readonly': [('re_update_bom', '=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                                <field name="create_uid"/>
+                            </group>
+                        </group>
+                        <group>
+                            <button name="action_re_upload_spares_bom" string="Upload New Material Number"
+                                    type="object" data-hotkey="l" title="Upload New Material Number"
+                                    attrs="{'invisible': [('re_update_bom', '=', False)]}"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_spares_finder_report_tree" model="ir.ui.view">
+            <field name="name">spares.finder_report.tree</field>
+            <field name="model">spares.finder_report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="spares_finder" widget="many2many_binary"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

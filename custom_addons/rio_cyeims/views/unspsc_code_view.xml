@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="unspsc_code_view_search" model="ir.ui.view">
+            <field name="name">unspsc.code.search</field>
+            <field name="model">unspsc.code</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='segment_desc'/>
+                    <field name='family_desc'/>
+                    <field name='class_desc'/>
+                    <field name='commodity_desc'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="unspsc_code_tree">
+            <field name="name">unspsc.code.tree_view</field>
+            <field name="model">unspsc.code</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='segment_desc'/>
+                    <field name='segment'/>
+                    <field name='family_desc'/>
+                    <field name='family'/>
+                    <field name='class_desc'/>
+                    <field name='class_1'/>
+                    <field name='commodity_desc'/>
+                    <field name='commodity'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_unspsc_code_form" model="ir.ui.view">
+            <field name="name">unspsc.code.form</field>
+            <field name="model">unspsc.code</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="12">
+                            <group colspan="2">
+                                <label for="segment" string="Segment"/>
+                            </group>
+                            <group colspan="6">
+                                <field name='segment_desc' nolabel="1"/>
+                            </group>
+                            <group colspan="2">
+                                <field name='segment' nolabel="1"/>
+                            </group>
+                        </group>
+                        <group col="12">
+                            <group colspan="2">
+                                <label for="family" string="Family"/>
+                            </group>
+                            <group colspan="6">
+                                <field name='family_desc' nolabel="1"/>
+                            </group>
+                            <group colspan="2">
+                                <field name='family' nolabel="1"/>
+                            </group>
+                        </group>
+                        <group col="12">
+                            <group colspan="2">
+                                <label for="class_1" string="Class"/>
+                            </group>
+                            <group colspan="6">
+                                <field name='class_desc' nolabel="1"/>
+                            </group>
+                            <group colspan="2">
+                                <field name='class_1' nolabel="1"/>
+                            </group>
+                        </group>
+                        <group col="12">
+                            <group colspan="2">
+                                <label for="commodity" string="Commodity"/>
+                            </group>
+                            <group colspan="6">
+                                <field name='commodity_desc' nolabel="1"/>
+                            </group>
+                            <group colspan="2">
+                                <field name='commodity' nolabel="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

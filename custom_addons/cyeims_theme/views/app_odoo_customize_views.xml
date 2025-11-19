@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    <template id="assets_backend" name="app_odoo_customize assets" inherit_id="web.assets_backend">-->
+<!--        <xpath expr="script[last()]" position="after">-->
+<!--            <script type="text/javascript" src="/app_odoo_customize/static/src/js/app_window_title.js"></script>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+    <!-- some odoo version not support, please remove this if you are using odoo9 -->
+    <template id="replace_login" name="Login Layout" inherit_id="web.login_layout">
+        <xpath expr="//a[@target='_blank']" position="replace">
+            <a href="#" target="_blank">Powered by
+                <span>CyEIMS</span>
+            </a>
+        </xpath>
+    </template>
+
+    <template id="replace_icon" name="icon Layout" inherit_id="web.layout">
+        <xpath expr="//link[@type='image/x-icon']" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/cyeims_theme/static/src/img/cyeint.png'"/>
+        </xpath>
+    </template>
+</odoo>

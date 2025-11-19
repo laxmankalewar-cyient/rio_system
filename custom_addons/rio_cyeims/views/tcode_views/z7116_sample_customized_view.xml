@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="z7116_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">z7116.sample_customized.search</field>
+            <field name="model">z7116.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name='plant'/>
+                    <field name='valuation_category'/>
+                    <field name='description'/>
+                    <field name='material'/>
+                    <field name='material_description'/>
+                    <field name='material_type'/>
+                    <field name='stock_on_hand_consignment'/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="z7116_sample_customized_tree">
+            <field name="name">z7116.sample_customized.tree_view</field>
+            <field name="model">z7116.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='traffic_light'/>
+                    <field name='plant'/>
+                    <field name='valuation_category'/>
+                    <field name='description'/>
+                    <field name='material'/>
+                    <field name='material_description' optional='show'/>
+                    <field name='material_type' optional='show'/>
+                    <field name='stock_on_hand_consignment' optional='hide'/>
+                    <field name='vmi_consignment' optional='hide'/>
+                    <field name='mrp_cont' optional='hide'/>
+                    <field name='mrp_type' optional='hide'/>
+                    <field name='lot_size' optional='hide'/>
+                    <field name='unsrv' optional='hide'/>
+                    <field name='res_req_release' optional='hide'/>
+                    <field name='rel_reservations' optional='hide'/>
+                    <field name='ltime' optional='hide'/>
+                    <field name='usg_3_mts' optional='hide'/>
+                    <field name='usg_12_mts' optional='hide'/>
+                    <field name='reorder' optional='hide'/>
+                    <field name='max_stk_le' optional='hide'/>
+                    <field name='refurbishment_order_exists' optional='hide'/>
+                    <field name='total_value' optional='hide'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_z7116_sample_customized_form" model="ir.ui.view">
+            <field name="name">z7116.sample_customized.form</field>
+            <field name="model">z7116.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='traffic_light'/>
+                                <field name='plant'/>
+                                <field name='valuation_category'/>
+                                <field name='description'/>
+                            </group>
+                            <group>
+                                <field name='material'/>
+                                <field name='material_description'/>
+                                <field name='material_type'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='stock_on_hand_consignment'/>
+                                <field name='vmi_consignment'/>
+                                <field name='mrp_cont'/>
+                                <field name='mrp_type'/>
+                            </group>
+                            <group>
+                                <field name='lot_size'/>
+                                <field name='unsrv'/>
+                                <field name='res_req_release'/>
+                                <field name='rel_reservations'/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='ltime'/>
+                                <field name='usg_3_mts'/>
+                                <field name='usg_12_mts'/>
+                                <field name='total_value'/>
+                            </group>
+                            <group>
+                                <field name='reorder'/>
+                                <field name='max_stk_le'/>
+                                <field name='refurbishment_order_exists'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

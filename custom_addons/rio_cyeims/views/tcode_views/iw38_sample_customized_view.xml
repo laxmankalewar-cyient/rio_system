@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="iw38_sample_customized_view_search" model="ir.ui.view">
+            <field name="name">iw38.sample_customized.search</field>
+            <field name="model">iw38.sample_customized</field>
+            <field name="arch" type="xml">
+                <search>
+                     <field name='order_type'/>
+                    <field name='notification' />
+                    <field name='order'/>
+                    <field name='bas_start_date'/>
+                    <field name='stat_flag'/>
+                    <field name='functional_loc'/>
+                    <field name='funclocdesc'/>
+                    <field name='description'/>
+                    <field name='system_status'/>
+                    <field name='user_status'/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="iw38_sample_customized_tree">
+            <field name="name">iw38.sample_customized.tree_view</field>
+            <field name="model">iw38.sample_customized</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name='order_type' optional='show'/>
+                    <field name='notification' optional='show'/>
+                    <field name='order' optional='show'/>
+                    <field name='bas_start_date' optional='show'/>
+                    <field name='stat_flag' optional='show'/>
+                    <field name='functional_loc' optional='show'/>
+                    <field name='funclocdesc' optional='show'/>
+                    <field name='description' optional='show'/>
+                    <field name='system_status' optional='show'/>
+                    <field name='user_status' optional='hide'/>
+                    <field name='main_workctr' optional='hide'/>
+                    <field name='planner_group' optional='hide'/>
+                    <field name='created_on' optional='hide'/>
+                    <field name='po_number' optional='hide'/>
+                    <field name='plant' optional='hide'/>
+                    <field name='material' optional='hide'/>
+                    <field name='group' optional='hide'/>
+                    <field name='group_counter' optional='hide'/>
+                    <field name='basic_fin_date' optional='hide'/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_iw38_sample_customized_form" model="ir.ui.view">
+            <field name="name">iw38.sample_customized.form</field>
+            <field name="model">iw38.sample_customized</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='order_type'/>
+                                <field name='notification'/>
+                                <field name='order'/>
+                                <field name='bas_start_date'/>
+                            </group>
+                            <group>
+                                <field name='stat_flag' />
+                                <field name='functional_loc' />
+                                <field name='funclocdesc' />
+                                <field name='description' />
+                                <field name='system_status' />
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='user_status'/>
+                                <field name='main_workctr'/>
+                                <field name='planner_group'/>
+                                <field name='created_on'/>
+                                <field name='po_number'/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name='plant'/>
+                                <field name='material'/>
+                                <field name='group'/>
+
+                            </group>
+                            <group>
+                                <field name='group_counter'/>
+                                <field name='basic_fin_date'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

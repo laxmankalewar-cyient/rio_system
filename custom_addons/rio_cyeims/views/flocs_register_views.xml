@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="flocs_register_tree">
+            <field name="name">flocs.register.tree.view</field>
+            <field name="model">flocs.register</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="site" options="{'no_create': True}" optional='show' readonly="1"/>
+                    <field name="site_name" optional='hide' readonly="1"/>
+                    <field name="pu_id" options="{'no_create': True}" optional='show' readonly="1"/>
+                    <field name="pu_desc" optional='show' readonly="1"/>
+                    <field name="parent_relation" optional='show' readonly="1"/>
+                    <field name="floc_id" options="{'no_create': True}" optional='show' readonly="1"/>
+                    <field name="flocs_desc" optional='show' readonly="1"/>
+                    <field name="criticality" optional='show' readonly="1"/>
+                    <field name="detail_drawings" widget="url" optional='show' readonly="1"/>
+                    <field name="layout_drawings" widget="url" optional='show' readonly="1"/>
+                    <field name="count_of_liner" optional='show' readonly="1"/>
+                    <field name="asset_type" options="{'no_create': True}"  optional='show' readonly="1"/>
+                    <field name="process_area" options="{'no_create': True}" optional='show' readonly="1"/>
+                    <field name="sum_of_liner" optional='show' readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_flocs_register_form" model="ir.ui.view">
+            <field name="name">flocs.register.form</field>
+            <field name="model">flocs.register</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="site"/>
+                            </group>
+                            <group>
+                                <field name="parent_relation"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="pu_id"/>
+                                <field name="pu_desc"/>
+                            </group>
+                            <group>
+                                <field name="floc_id"/>
+                                <field name="flocs_desc"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="criticality"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="detail_drawings"/>
+                                <field name="layout_drawings"/>
+
+                            </group>
+                            <group>
+                                <field name="sum_of_liner"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="process_area" optional='hide'/>
+                                <field name="asset_type" optional='hide'/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
