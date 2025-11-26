@@ -19,6 +19,8 @@
                     <field name="sap_material_description"/>
                     <field name='dwg_linerdetail'/>
                     <field name='sap_new_material'/>
+                    <field name='dwg_markingplan'/>
+                    <field name='standard_liner'/>
                     <filter string="Same RIO-Code With NA and Materials" name="same_rio_code_with_na"
                             domain="[('rtio_liner_code_greater_one', '=', 'Same RIO-Code With NA')]"/>
                     <filter string="Same Material With Different RIO-Code" name="same_material_with_different_rio_code"

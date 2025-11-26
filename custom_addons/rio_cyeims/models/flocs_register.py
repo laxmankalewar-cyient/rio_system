@@ -101,7 +101,11 @@ class FlocsRegister(models.Model):
 
             for line in taxonomy:
                 detail_drawings = line["dwg_linerdetail"]
-                taxonomy = self.env['product.liner_taxonomy'].search([('dwg_linerdetail', '=', detail_drawings)])[0]
+                #taxonomy = self.env['product.liner_taxonomy'].search([('dwg_linerdetail', '=', detail_drawings)])[0]
+                taxonomy = self.env['product.liner_taxonomy'].search([
+                    ('floc_id', '=', floc.id),
+                    ('dwg_linerdetail', '=', detail_drawings)
+                ], limit=1)
 
                 val = {"floc_id": floc.id, "pu_id": floc.pu_id.id,
                        'layout_drawings': taxonomy.dwg_markingplan,
