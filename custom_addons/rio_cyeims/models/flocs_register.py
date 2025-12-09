@@ -33,7 +33,7 @@ class FlocsRegister(models.Model):
     count_of_liner = fields.Html('Count of Liners')
 
     _sql_constraints = [
-        ('floc_liner_detailed_drawing_uniq', 'unique(floc_id, detail_drawings)',
+        ('floc_liner_detailed_drawing_uniq', 'unique(floc_id, detail_drawings,layout_drawings)',
          'Floc and liner combination already added.'),
     ]
 
@@ -66,13 +66,16 @@ class FlocsRegister(models.Model):
 
     def remove_flocs_register(self):
         flocs_registers = self.env['flocs.register'].read_group(
-            [('detail_drawings', '!=', 'NA')], ['floc_id', 'detail_drawings'],
-            ['floc_id', 'detail_drawings'], lazy=False)
+            [('detail_drawings', '!=', 'NA'), ('layout_drawings', '!=', 'NA')],
+            ['floc_id', 'detail_drawings', 'layout_drawings'],
+            ['floc_id', 'detail_drawings', 'layout_drawings'], lazy=False)
         for flocs_register in flocs_registers:
             floc_id = flocs_register['floc_id'][0]
             detail_drawings = flocs_register['detail_drawings']
+            dwg_markingplan = flocs_register['layout_drawings']
             liner_tax = self.env['product.liner_taxonomy'].search([('floc_id', '=', floc_id),
-                                                                   ('dwg_linerdetail', '=', detail_drawings)])
+                                                                   ('dwg_linerdetail', '=', detail_drawings),
+                                                                   ('dwg_markingplan', '=', dwg_markingplan)])
             if liner_tax:
                 continue
             else:
@@ -87,7 +90,7 @@ class FlocsRegister(models.Model):
         for floc in self.env['rio.flocs'].search(domain):
             taxonomy = self.env['product.liner_taxonomy'].read_group(
                 [('floc_id', '=', floc.id)], ['liner_detail_qty', 'dwg_linerdetail', 'dwg_markingplan'],
-                ['floc_id', 'dwg_linerdetail'],
+                ['floc_id', 'dwg_linerdetail', 'dwg_markingplan'],
                 lazy=False)
             if not taxonomy:
                 val = {"floc_id": floc.id, "pu_id": floc.pu_id.id, 'detail_drawings': 'NA',
@@ -101,18 +104,26 @@ class FlocsRegister(models.Model):
 
             for line in taxonomy:
                 detail_drawings = line["dwg_linerdetail"]
-                taxonomy = self.env['product.liner_taxonomy'].search([('dwg_linerdetail', '=', detail_drawings)])[0]
-                # taxonomy = self.env['product.liner_taxonomy'].search([
-                #     ('floc_id', '=', floc.id),
-                #     ('dwg_linerdetail', '=', detail_drawings)
-                # ], limit=1)
+                dwg_markingplan = line["dwg_markingplan"]
 
                 val = {"floc_id": floc.id, "pu_id": floc.pu_id.id,
-                       'layout_drawings': taxonomy.dwg_markingplan,
+                       'layout_drawings': dwg_markingplan,
                        'count_of_liner': line["__count"],
                        "sum_of_liner": line["liner_detail_qty"], "detail_drawings": detail_drawings}
 
-                floc_register = self.search([('floc_id', '=', floc.id), '|', ('detail_drawings', '=', detail_drawings), ('detail_drawings', '=', 'NA')])
+                domain_1 = [
+                    ('floc_id', '=', floc.id),
+
+                    '|',
+                    ('detail_drawings', '=', detail_drawings),
+                    ('detail_drawings', '=', 'NA'),
+
+                    '|',
+                    ('layout_drawings', '=', dwg_markingplan),
+                    ('layout_drawings', '=', 'NA'),
+                ]
+
+                floc_register = self.search(domain_1)
                 if floc_register:
                     floc_register.write(val)
                 else:
